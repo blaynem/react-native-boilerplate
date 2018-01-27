@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
   * Create-React-App-Native
   * React-Redux
   * Redux
+  * Redux-Persist
   * Redux-Thunk
   * Remote-Redux-Devtools
 

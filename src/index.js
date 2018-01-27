@@ -1,24 +1,18 @@
 import React from 'react'
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'remote-redux-devtools';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import { PersistGate } from 'redux-persist/lib/integration/react'
 
-import reducers from './reducers';
+import configureStore from './configureStore'
+let { store, persistor } = configureStore()
 
 import MainApp from './MainApp';
 
-const store = createStore(
-	reducers,
-	composeWithDevTools(
-		applyMiddleware(thunk),
-	)
-)
-
 const Main = () => (
   <Provider store={store}>
-    <MainApp />
-   </Provider> 
+    <PersistGate loading={null} persistor={persistor}>
+      <MainApp />
+    </PersistGate>
+  </Provider> 
 )
 
 export default Main
