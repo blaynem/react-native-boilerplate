@@ -1,5 +1,6 @@
 import React from 'react'
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'remote-redux-devtools';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
@@ -9,7 +10,7 @@ import MainApp from './MainApp';
 
 const store = createStore(
 	reducers,
-	compose(
+	composeWithDevTools(
 		applyMiddleware(thunk),
 	)
 )
